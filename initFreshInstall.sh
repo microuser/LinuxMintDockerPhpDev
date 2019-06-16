@@ -93,6 +93,11 @@ function SetupSsh()
 function InstallEditors(){
 
     InstallNow netbeans sublime-text snapd git
+    #netbeans dies with ipv6. disabled for linux as a whole. the workarounds as default_java_options in /etc/netbetbeans.cfg don't work well either
+    sysctl -w net.ipv6.conf.all.disable_ipv6=1
+    sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+        
     sudo snap install atom --classic
 }
 
